@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:SJMC.CustomControl"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:convertors="clr-namespace:SJMC.Convertors"
+             mc:Ignorable="d"
+             x:Class="SJMC.Views.News.NewsPage"
+             Title="NEWS"
+             BackgroundColor="#FFFFFF"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convertors:BoolInversionConverter x:Key="InvertBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowSpacing="0"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--Navigation Bar Section-->
+        <Grid Grid.Row="0"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="Start"
+              BackgroundColor="#213A8E">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--Back-->
+            <Grid Grid.Column="0"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Menu_Tapped" />
+                </Grid.GestureRecognizers>
+                <StackLayout Orientation="Horizontal"
+                             Spacing="5"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <!--Back Icon-->
+                    <Image Source="back.png"
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           Margin="25,0,0,0" />
+                </StackLayout>
+            </Grid>
+            <!--Title Section-->
+            <Grid Grid.Column="1"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+                <local:CustomLabelRegular Text="NEWS"
+                                          TextColor="#FFFFFF"
+                                          FontSize="20"
+                                          HorizontalTextAlignment="Center"
+                                          VerticalTextAlignment="Center" />
+            </Grid>
+
+            <Grid Grid.Column="2"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Menu_Tapped" />
+                </Grid.GestureRecognizers>
+                <StackLayout Orientation="Horizontal"
+                             Spacing="5"
+                             HorizontalOptions="EndAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <!--Back Icon-->
+                    <Image  HeightRequest="15"
+                            WidthRequest="15"
+                            Margin="0,0,25,0" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              HorizontalOptions="FillAndExpand">
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <StackLayout BindableLayout.ItemsSource="{Binding NewsList}"
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="FillAndExpand"
+                                  VerticalOptions="FillAndExpand"
+                                  Margin="0,0,0,20"
+                                  BackgroundColor="White">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="80" />
+                                    <RowDefinition Height="80" />
+                                </Grid.RowDefinitions>
+                                <Grid  Grid.Row="0"
+                                       Grid.RowSpan="2"
+                                       Scale="1.1">
+                                    <forms:CachedImage Source="{Binding ImageData, Mode=TwoWay}"
+                                                       Aspect="AspectFill"
+                                                       LoadingPlaceholder="loading.jpg"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       VerticalOptions="FillAndExpand" />
+                                    <BoxView Color="{Binding BackgroundColor}"
+                                             Opacity=".6"
+                                             HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="FillAndExpand"></BoxView>
+                                </Grid>
+
+                                <StackLayout Grid.Row="1"
+                                             Margin="20,0,20,20"
+                                             HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="FillAndExpand">
+
+                                    <StackLayout Orientation="Horizontal"
+                                                 HeightRequest="35"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 Spacing="0">
+                                        <ContentView BackgroundColor="Blue"
+                                                     HeightRequest="20"
+                                                     WidthRequest="30">
+                                            <Image Source="menu.png"
+                                                   BackgroundColor="Blue"
+                                                   HeightRequest="20"
+                                                   WidthRequest="20"
+                                                   HorizontalOptions="Center" />
+                                        </ContentView>
+
+                                        <ContentView BackgroundColor="#26BECD"
+                                                     Padding="10,0,10,0">
+                                            <local:CustomLabelBold Text="{Binding Title}"
+                                                                   TextColor="White"
+                                                                   FontSize="Medium"
+                                                                   HorizontalOptions="StartAndExpand"
+                                                                   MaxLines="1"
+                                                                   VerticalOptions="Center" />
+                                        </ContentView>
+
+                                    </StackLayout>
+
+                                    <!--<Grid BackgroundColor="#26BECD"
+                                          Opacity="0.8"
+                                          HorizontalOptions="Start">-->
+
+                                        <local:CustomLabelRegular Text="{Binding IssueDate}"
+                                                                  TextColor="White"
+                                                                  FontSize="Small"
+                                                                  VerticalOptions="Center" />
+
+                                    <!--</Grid>-->
+
+
+                                    <!--<Grid BackgroundColor="#26BECD"
+                                          Opacity="0.8">-->
+
+                                        <local:CustomLabelBold Text="{Binding Description}"
+                                                               TextColor="White"
+                                                           FontSize="Micro"
+                                                           HorizontalOptions="StartAndExpand"
+                                                               VerticalOptions="Center"
+                                                               MaxLines="2" />
+                                    <!--</Grid>-->
+
+                                </StackLayout>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="NewsDetail_Tapped"
+                                                          NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

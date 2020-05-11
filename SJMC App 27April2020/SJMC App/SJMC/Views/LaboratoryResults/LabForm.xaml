@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:SJMC.CustomControl"
+             mc:Ignorable="d"
+             x:Class="SJMC.Views.LaboratoryResults.LabForm"
+             Title="LabForm"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#FAFAFA">
+
+    <Grid HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--Navigation Bar Section-->
+        <Grid Grid.Row="0"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="Start"
+              BackgroundColor="#213A8E">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--Back-->
+            <Grid Grid.Column="0"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}" />
+                </Grid.GestureRecognizers>
+                <StackLayout Orientation="Horizontal"
+                             Spacing="5"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <!--Back Icon-->
+                    <Image Source="back.png"
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           Margin="25,0,0,0" />
+                </StackLayout>
+            </Grid>
+            <!--Title Section-->
+            <Grid Grid.Column="1"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+                <local:CustomLabelRegular Text="Lab Form"
+                                          TextColor="#FFFFFF"
+                                          FontSize="20"
+                                          HorizontalTextAlignment="Center"
+                                          VerticalTextAlignment="Center" />
+            </Grid>
+
+            <Grid Grid.Column="2"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+                <Grid.GestureRecognizers>
+                    <!--<TapGestureRecognizer Tapped="Menu_Tapped"/>-->
+                </Grid.GestureRecognizers>
+                <StackLayout Orientation="Horizontal"
+                             Spacing="5"
+                             HorizontalOptions="EndAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <!--Back Icon-->
+                    <Image Source="setting.png"
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           Margin="0,0,25,0" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand">
+            <ScrollView  HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--<StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#FFFFFF" Padding="15">
+                <local:CustomLabelBold Text="Do not hesitatact us for any information, feedback, suggestion or request" TextColor="#414141" FontSize="Small" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                <BoxView HeightRequest="5"  HorizontalOptions="Center" VerticalOptions="FillAndExpand"/>
+                <BoxView HeightRequest="2" WidthRequest="90" BackgroundColor="#657299"  HorizontalOptions="Center" VerticalOptions="End"/>
+            </StackLayout>-->
+
+                    <Frame Grid.Row="1"
+                           Grid.Column="0"
+                           Padding="0"
+                           BackgroundColor="#FFFFFF"
+                           BorderColor="#E1E1E1"
+                           HasShadow="False"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           Margin="20,10">
+                        <Grid Padding="20,10"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5" />
+                                <RowDefinition Height="70" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="40" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Row="1"
+                                   Grid.Column="0"
+                                   Source="lab.png"
+                                   HeightRequest="60"
+                                   WidthRequest="60"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center" />
+                            <StackLayout Grid.Row="1"
+                                         Grid.Column="1"
+                                         Spacing="0"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Center">
+                                <local:CustomLabelBold Text="Laboratory"
+                                                       TextColor="#040404"
+                                                       HorizontalOptions="Start"
+                                                       VerticalOptions="Center">
+                                    <local:CustomLabelBold.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS" Value="Medium"></On>
+                                            <On Platform="Android" Value="Micro"></On>
+                                        </OnPlatform>
+                                    </local:CustomLabelBold.FontFamily>
+                                </local:CustomLabelBold>
+                                <StackLayout Orientation="Horizontal"
+                                             Spacing="0"
+                                             HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="Center">
+                                    <local:CustomLabelRegular Text="Phone: "
+                                                              TextColor="#404040"
+                                                              HorizontalOptions="Start"
+                                                              VerticalOptions="Center" >
+                                        <local:CustomLabelRegular.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Medium"></On>
+                                                <On Platform="Android" Value="Micro"></On>
+                                            </OnPlatform>
+                                        </local:CustomLabelRegular.FontFamily>
+                                    </local:CustomLabelRegular>
+                                    <local:CustomLabelRegular Text="9611613616"
+                                                              TextColor="#404040"
+                                                              HorizontalOptions="Start"
+                                                              VerticalOptions="Center" >
+                                        <local:CustomLabelRegular.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Medium"></On>
+                                                <On Platform="Android" Value="Micro"></On>
+                                            </OnPlatform>
+                                        </local:CustomLabelRegular.FontFamily>
+                                    </local:CustomLabelRegular>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Spacing="0"
+                                             HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="Center">
+                                    <local:CustomLabelRegular Text="Email: "
+                                                              TextColor="#7C7C7C"
+                                                              HorizontalOptions="Start"
+                                                              VerticalOptions="Center" >
+                                         <local:CustomLabelRegular.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Medium"></On>
+                                                <On Platform="Android" Value="Micro"></On>
+                                            </OnPlatform>
+                                        </local:CustomLabelRegular.FontFamily>
+                                    </local:CustomLabelRegular>
+                                    <local:CustomLabelRegular Text="lab@stjosephlab.com"
+                                                              TextColor="#7C7C7C"
+                                                              HorizontalOptions="Start"
+                                                              VerticalOptions="Center" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <local:CustomLabelRegular Grid.Row="3"
+                                                      Grid.Column="0"
+                                                      Grid.ColumnSpan="2"
+                                                      Text="Full name"
+                                                      TextColor="#A1A1A1"
+                                                      FontSize="Small"
+                                                      HorizontalOptions="StartAndExpand"
+                                                      VerticalOptions="End" />
+                            <local:CustomEntryRegular Grid.Row="4"
+                                                      Grid.Column="0"
+                                                      Grid.ColumnSpan="2"
+                                                      Text="{Binding Fullname}"
+                                                      TextColor="#323232"
+                                                      FontSize="Small"
+                                                      Placeholder="Full name"
+                                                      PlaceholderColor="#A1A1A1"
+                                                      HorizontalOptions="FillAndExpand"
+                                                      VerticalOptions="Center" />
+                            <BoxView Grid.Row="4"
+                                     Grid.Column="0"
+                                     HeightRequest="1"
+                                     Grid.ColumnSpan="2"
+                                     BackgroundColor="#CDCDCD"
+                                     TranslationY="-5"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="End" />
+
+                            <local:CustomLabelRegular Grid.Row="5"
+                                                      Grid.Column="0"
+                                                      Grid.ColumnSpan="2"
+                                                      Text="Email Id"
+                                                      TextColor="#A1A1A1"
+                                                      FontSize="Small"
+                                                      HorizontalOptions="StartAndExpand"
+                                                      VerticalOptions="Center" />
+                            <local:CustomEntryRegular Grid.Row="6"
+                                                      Grid.Column="0"
+                                                      Grid.ColumnSpan="2"
+                                                      Text="{Binding Email}"
+                                                      TextColor="#323232"
+                                                      FontSize="Small"
+                                                      Placeholder="Email"
+                                                      PlaceholderColor="#A1A1A1"
+                                                      MaxLength="100"
+                                                      Keyboard="Email"
+                                                      HorizontalOptions="FillAndExpand"
+                                                      VerticalOptions="Center" />
+                            <BoxView Grid.Row="6"
+                                     Grid.Column="0"
+                                     HeightRequest="1"
+                                     Grid.ColumnSpan="2"
+                                     BackgroundColor="#CDCDCD"
+                                     TranslationY="-5"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="End" />
+
+                            <local:CustomLabelRegular Grid.Row="7"
+                                                      Grid.Column="0"
+                                                      Grid.ColumnSpan="2"
+                                                      Text="Subject of your message"
+                                                      TextColor="#A1A1A1"
+                                                      FontSize="Small"
+                                                      HorizontalOptions="StartAndExpand"
+                                                      VerticalOptions="Center" />
+                            <local:CustomEntryRegular Grid.Row="8"
+                                                      Grid.Column="0"
+                                                      Grid.ColumnSpan="2"
+                                                      Text="{Binding Subject}"
+                                                      TextColor="#323232"
+                                                      FontSize="Small"
+                                                      HorizontalOptions="FillAndExpand"
+                                                      VerticalOptions="Center" />
+                            <BoxView Grid.Row="8"
+                                     Grid.Column="0"
+                                     HeightRequest="1"
+                                     Grid.ColumnSpan="2"
+                                     BackgroundColor="#CDCDCD"
+                                     TranslationY="-5"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="End" />
+
+                            <local:CustomLabelRegular Grid.Row="9"
+                                                      Grid.Column="0"
+                                                      Grid.ColumnSpan="2"
+                                                      Text="Your message"
+                                                      TextColor="#A1A1A1"
+                                                      FontSize="Small"
+                                                      HorizontalOptions="StartAndExpand"
+                                                      VerticalOptions="Center" />
+                            <local:CustomEntryRegular Grid.Row="10"
+                                                      Grid.Column="0"
+                                                      Grid.ColumnSpan="2"
+                                                      Text="{Binding Message}"
+                                                      TextColor="#323232"
+                                                      FontSize="Small"
+                                                      HorizontalOptions="FillAndExpand"
+                                                      VerticalOptions="Center" />
+
+                            <BoxView Grid.Row="10"
+                                     Grid.Column="0"
+                                     HeightRequest="1"
+                                     Grid.ColumnSpan="2"
+                                     BackgroundColor="#CDCDCD"
+                                     TranslationY="-5"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="End" />
+
+                            <Button Grid.Row="11"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Text="Send"
+                                    TextColor="#ffffff"
+                                    Font="16"
+                                    HeightRequest="40"
+                                    BackgroundColor="#213A8E"
+                                    Command="{Binding SendCommand}"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand" />
+                        </Grid>
+                    </Frame>
+
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </Grid>
+
+</ContentPage>

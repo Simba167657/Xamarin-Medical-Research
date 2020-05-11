@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:SJMC.CustomControl"
+    xmlns:laboratoryresults="clr-namespace:SJMC.Views.LaboratoryResults"
+    xmlns:radiologyresults="clr-namespace:SJMC.Views.RadiologyResults"
+    mc:Ignorable="d"
+    x:Class="SJMC.Views.TabbedPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="60" />
+                <!--<RowDefinition Height="60"/>-->
+            </Grid.RowDefinitions>
+
+            <local:CustomTabView
+                Grid.Row="0"
+                x:Name="MyTab"
+                BackgroundColor="#f6f6f6"
+                TabItemTapped="MyTab_TabItemTapped"
+                TabHeaderPosition="Bottom"
+                SelectedIndex="{Binding CurrentTabIndex}"
+                TabHeight=".01">
+                <!--<local:CustomTabItem Title="labs">
+                    <local:CustomTabItem.Content>
+                        <laboratoryresults:LabResultPage/>
+                    </local:CustomTabItem.Content>
+                </local:CustomTabItem>
+                <local:CustomTabItem Title="radio">
+                    <local:CustomTabItem.Content>
+                        <radiologyresults:RadioResultPage/>
+                    </local:CustomTabItem.Content>
+                </local:CustomTabItem>-->
+            </local:CustomTabView>
+
+            <Grid
+                Grid.Row="1"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End"
+                BackgroundColor="#FFFFFF">
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="60" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Spacing="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <Image
+                        Source="lab.png"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+                    <local:CustomLabelRegular
+                        Text="Laboratory"
+                        TextColor="#ADADAD"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Start">
+
+                        <local:CustomLabelRegular.FontFamily>
+                            <OnPlatform
+                                x:TypeArguments="x:String">
+                                <On
+                                    Platform="iOS"
+                                    Value="Medium"></On>
+                                <On
+                                    Platform="Android"
+                                    Value="Micro"></On>
+                            </OnPlatform>
+                        </local:CustomLabelRegular.FontFamily>
+
+                    </local:CustomLabelRegular>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding LabCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Spacing="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <Image
+                        Source="radiology.png"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+                    <local:CustomLabelRegular
+                        Text="Radiology"
+                        TextColor="#ADADAD"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Start">
+
+                        <local:CustomLabelRegular.FontFamily>
+                            <OnPlatform
+                                x:TypeArguments="x:String">
+                                <On
+                                    Platform="iOS"
+                                    Value="Medium"></On>
+                                <On
+                                    Platform="Android"
+                                    Value="Micro"></On>
+                            </OnPlatform>
+                        </local:CustomLabelRegular.FontFamily>
+
+                    </local:CustomLabelRegular>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding RadioCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Grid
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    IsVisible="{Binding LabCountVisibility}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    Margin="70,0,0,0">
+                    <Image
+                        Source="circl.png"
+                        Aspect="AspectFit"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        HeightRequest="20"
+                        WidthRequest="20" />
+                    <local:CustomLabelFontFactor
+                        Text="{Binding LabCount}"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        FontSizeFactor="0.65">
+
+                        <local:CustomLabelFontFactor.FontFamily>
+                            <OnPlatform
+                                x:TypeArguments="x:String">
+                                <On
+                                    Platform="iOS"
+                                    Value="Small"></On>
+                                <On
+                                    Platform="Android"
+                                    Value="Micro"></On>
+                            </OnPlatform>
+                        </local:CustomLabelFontFactor.FontFamily>
+
+                    </local:CustomLabelFontFactor>
+                </Grid>
+                <Grid
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    IsVisible="{Binding RadioCountVisibility}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    Margin="70,0,0,0">
+                    <Image
+                        Source="circl.png"
+                        Aspect="AspectFit"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        HeightRequest="20"
+                        WidthRequest="20" />
+                    <local:CustomLabelFontFactor
+                        Text="{Binding RadioCount}"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        FontSizeFactor="0.65">
+
+                        <local:CustomLabelFontFactor.FontFamily>
+                            <OnPlatform
+                                x:TypeArguments="x:String">
+                                <On
+                                    Platform="iOS"
+                                    Value="Small"></On>
+                                <On
+                                    Platform="Android"
+                                    Value="Micro"></On>
+                            </OnPlatform>
+                        </local:CustomLabelFontFactor.FontFamily>
+
+                    </local:CustomLabelFontFactor>
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

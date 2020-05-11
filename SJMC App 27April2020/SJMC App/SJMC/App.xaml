@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:convertors="clr-namespace:SJMC.Convertors"
+             mc:Ignorable="d"
+             x:Class="SJMC.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThemeBlueColor">#33405D</Color>
+            <Color x:Key="LabRed">#E20909</Color>
+            <Color x:Key="NavBarBlueColor">#213A8E</Color>
+ 
+            <convertors:ReportsDaysAgoConvertor x:Key="ReportsDaysAgoConvertor"></convertors:ReportsDaysAgoConvertor>
+            <convertors:ReportsRefrenceIdConvertor x:Key="ReportsRefrenceIdConvertor"></convertors:ReportsRefrenceIdConvertor>
+            <convertors:ReportsDateTimeConvertor  x:Key="ReportsDateTimeConvertor"></convertors:ReportsDateTimeConvertor>
+            <convertors:ReportsPatientNameVisibilityConvertor x:Key="ReportsPatientNameVisibilityConvertor"></convertors:ReportsPatientNameVisibilityConvertor>
+            <convertors:ReportsPatientNameConvertor x:Key="ReportsPatientNameConvertor"></convertors:ReportsPatientNameConvertor>
+            <convertors:ReportTypeColorConvertor x:Key="ReportTypeColorConvertor"></convertors:ReportTypeColorConvertor>
+            <convertors:ReportsCheckByConvertor x:Key="ReportsCheckByConvertor"></convertors:ReportsCheckByConvertor>
+            <convertors:ReportViewedConverter x:Key="ReportViewedConverter"></convertors:ReportViewedConverter>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

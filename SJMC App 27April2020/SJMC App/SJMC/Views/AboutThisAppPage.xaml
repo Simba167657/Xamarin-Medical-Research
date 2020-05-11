@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:SJMC.CustomControl"
+    mc:Ignorable="d"
+    x:Class="SJMC.Views.AboutThisAppPage">
+    <Grid
+        x:Name="pdfViewGrid"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="50" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+        <Grid
+            Grid.Row="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            BackgroundColor="#213A8E">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="2*" />
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--Back-->
+            <Grid
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding BackCommand}" />
+                </Grid.GestureRecognizers>
+                <StackLayout
+                    Orientation="Horizontal"
+                    Spacing="5"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <!--Back Icon-->
+                    <Image
+                        Source="back.png"
+                        HeightRequest="25"
+                        WidthRequest="25"
+                        Margin="25,0,0,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding BackCommand}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </Grid>
+            <!--Title Section-->
+            <Grid
+                Grid.Column="1"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <local:CustomLabelRegular
+                    x:Name="TitleLabel"
+                    TextColor="#FFFFFF"
+                    Text="About Us"
+                    FontSize="Small"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center" />
+            </Grid>
+
+
+        </Grid>
+
+        <ScrollView
+            Grid.Row="1">
+            <StackLayout
+                Margin="20,15">
+                <Image
+                    Source="appLogo.png"
+                    Aspect="AspectFit"
+                    HeightRequest="150"
+                    WidthRequest="150"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="0,0,0,50"></Image>
+                <local:CustomLabelBold
+                    Text="Have your medical records at your fingertips with Saint Joseph Medical Center Secure Application."
+                    Margin="0,0,0,10" />
+                <local:CustomLabelFontFactor
+                    Text="- View your medical history">
+                    <local:CustomLabelFontFactor.FontFamily>
+                        <OnPlatform
+                            x:TypeArguments="x:String">
+                            <On
+                                Platform="iOS"
+                                Value="Medium"></On>
+                            <On
+                                Platform="Android"
+                                Value="Medium"></On>
+                        </OnPlatform>
+                    </local:CustomLabelFontFactor.FontFamily>
+                </local:CustomLabelFontFactor>
+
+                <local:CustomLabelFontFactor
+                    Text="- Access your medical records and choose between you laboratory results and your radiology imaging reports "
+                    FontSizeFactor="0.92">
+
+                    <local:CustomLabelFontFactor.FontFamily>
+                        <OnPlatform
+                            x:TypeArguments="x:String">
+                            <On
+                                Platform="iOS"
+                                Value="Medium"></On>
+                            <On
+                                Platform="Android"
+                                Value="Medium"></On>
+                        </OnPlatform>
+                    </local:CustomLabelFontFactor.FontFamily>
+                </local:CustomLabelFontFactor>
+                <local:CustomLabelFontFactor
+                    Text="- Instantly share your results with your doctor via any platform "
+                    FontSizeFactor="0.92">
+
+                    <local:CustomLabelFontFactor.FontFamily>
+                        <OnPlatform
+                            x:TypeArguments="x:String">
+                            <On
+                                Platform="iOS"
+                                Value="Medium"></On>
+                            <On
+                                Platform="Android"
+                                Value="Medium"></On>
+                        </OnPlatform>
+                    </local:CustomLabelFontFactor.FontFamily>
+                </local:CustomLabelFontFactor>
+                <local:CustomLabelFontFactor
+                    Text="- Keep yourself up to date with all our new technologies "
+                    FontSizeFactor="0.92">
+
+                    <local:CustomLabelFontFactor.FontFamily>
+                        <OnPlatform
+                            x:TypeArguments="x:String">
+                            <On
+                                Platform="iOS"
+                                Value="Medium"></On>
+                            <On
+                                Platform="Android"
+                                Value="Medium"></On>
+                        </OnPlatform>
+                    </local:CustomLabelFontFactor.FontFamily>
+                </local:CustomLabelFontFactor>
+                <local:CustomLabelFontFactor
+                    Text="- Receive alerts and notifications when results are done"
+                    FontSizeFactor="0.92">
+
+                    <local:CustomLabelFontFactor.FontFamily>
+                        <OnPlatform
+                            x:TypeArguments="x:String">
+                            <On
+                                Platform="iOS"
+                                Value="Medium"></On>
+                            <On
+                                Platform="Android"
+                                Value="Medium"></On>
+                        </OnPlatform>
+                    </local:CustomLabelFontFactor.FontFamily>
+                </local:CustomLabelFontFactor>
+                <local:CustomLabelFontFactor
+                    Text="- Find us on maps"
+                    FontSizeFactor="0.92">
+                    <local:CustomLabelFontFactor.FontFamily>
+                        <OnPlatform
+                            x:TypeArguments="x:String">
+                            <On
+                                Platform="iOS"
+                                Value="Medium"></On>
+                            <On
+                                Platform="Android"
+                                Value="Medium"></On>
+                        </OnPlatform>
+                    </local:CustomLabelFontFactor.FontFamily>
+                </local:CustomLabelFontFactor>
+
+            </StackLayout>
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:CustomControl="clr-namespace:SJMC.Views.Registration"
+    xmlns:CustomControl1="clr-namespace:SJMC.Views"
+    xmlns:CustomControl2="clr-namespace:SJMC.Views.Profile"
+    xmlns:local="clr-namespace:SJMC.CustomControl"
+    mc:Ignorable="d"
+    x:Class="SJMC.Views.HomeView"
+    Title="Home"
+    BackgroundColor="White"
+    MasterBehavior="Popover"
+    NavigationPage.HasNavigationBar="False">
+
+    <!--<MasterDetailPage.Detail>
+        <NavigationPage BarBackgroundColor="White">
+            <x:Arguments>
+                <CustomControl2:ProfilePage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>-->
+
+    <MasterDetailPage.Master
+        MasterBehavior="Popover">
+        <ContentPage
+            Title="Default">
+            <ScrollView
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2">
+
+                <Grid
+                    x:Name="MainStack"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="50" />
+                        <RowDefinition
+                            Height="*" />
+                        <RowDefinition
+                            Height="20" />
+                        <RowDefinition
+                            Height="46" />
+                        <RowDefinition
+                            Height="46" />
+                        <RowDefinition
+                            Height="46" />
+                        <RowDefinition
+                            Height="46" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="20" />
+                        <ColumnDefinition
+                            Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        BackgroundColor="#213A8E"
+                        Padding="8">
+                        <StackLayout
+                            Orientation="Horizontal"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <Image
+                                Source="menunoti.png"
+                                Aspect="AspectFit"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="Center"
+                                HeightRequest="25"
+                                WidthRequest="25" />
+                            <local:CustomLabelRegular
+                                Grid.Column="0"
+                                Text="MENU"
+                                Grid.Row="0"
+                                TextColor="#AAAAAA"
+                                FontSize="Large"
+                                VerticalOptions="Center"
+                                HorizontalOptions="CenterAndExpand"
+                                Margin="0,0,25,0" />
+                            <Image
+                                Aspect="AspectFit"
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="Center"
+                                HeightRequest="25"
+                                WidthRequest="25" />
+                        </StackLayout>
+                    </Grid>
+                    <Grid
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        Padding="10,4,0,0">
+                        <StackLayout
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="StartAndExpand">
+                            <!--
+                            <Image Source="close.png"
+                                   Aspect="AspectFit"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   HeightRequest="22"
+                                   WidthRequest="22">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding CloseCommand}"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>-->
+                            <ListView
+                                x:Name="masterMenuList"
+                                ItemsSource="{Binding MenuItemList}"
+                                RowHeight="42"
+                                HorizontalOptions="FillAndExpand"
+                                ItemSelected="masterMenuList_ItemSelected"
+                                VerticalOptions="Start"
+                                SeparatorVisibility="None"
+                                BackgroundColor="Transparent">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid
+                                                HorizontalOptions="FillAndExpand"
+                                                VerticalOptions="Center">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition
+                                                        Width="Auto" />
+                                                    <ColumnDefinition
+                                                        Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <local:CustomLabelRegular
+                                                    Grid.Column="0"
+                                                    Text="{Binding Title}"
+                                                    TextColor="#AAAAAA"
+                                                    FontSize="18"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Start" />
+                                                <Image
+                                                    Grid.Column="1"
+                                                    Source="circl.png"
+                                                    Aspect="AspectFit"
+                                                    HorizontalOptions="Start"
+                                                    VerticalOptions="Center"
+                                                    IsVisible="{Binding CountVisibility}"
+                                                    WidthRequest="25"
+                                                    HeightRequest="25" />
+                                                <local:CustomLabelFontFactor
+                                                    Grid.Column="1"
+                                                    Text="{Binding Count}"
+                                                    TextColor="#FFFFFF"
+                                                    FontSize="Micro"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"
+                                                    FontSizeFactor="0.65"
+                                                    IsVisible="{Binding CountVisibility}" />
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </Grid>
+
+                    <!--<StackLayout  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Padding="10">
+                    <Image Source="about.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="25" WidthRequest="25"/>
+                    <local:CustomLabelRegular Grid.Column="0" Text="About this app" Grid.Row="0" TextColor="#AAAAAA" FontSize="Subtitle"  VerticalOptions="Center" HorizontalOptions="Start" >
+                        <local:CustomLabelRegular.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding AboutCommand}"></TapGestureRecognizer>
+                        </local:CustomLabelRegular.GestureRecognizers>
+                    </local:CustomLabelRegular>
+                </StackLayout>-->
+
+
+
+                    <StackLayout
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        Padding="6,0,6,0">
+                        <Image
+                            Source="about.png"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            HeightRequest="22"
+                            WidthRequest="22" />
+                        <local:CustomLabelRegular
+                            Grid.Column="0"
+                            Text="About this app"
+                            TextColor="#AAAAAA"
+                            FontSize="Medium"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <local:CustomLabelRegular.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding AboutCommand}"></TapGestureRecognizer>
+                            </local:CustomLabelRegular.GestureRecognizers>
+                        </local:CustomLabelRegular>
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        Padding="6,0,6,0">
+
+                        <Image
+                            Source="rate.png"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            HeightRequest="22"
+                            WidthRequest="22" />
+                        <local:CustomLabelRegular
+                            Grid.Column="0"
+                            Text="Rate this app"
+                            Grid.Row="0"
+                            TextColor="#AAAAAA"
+                            FontSize="Medium"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding RateCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        Padding="6,0,6,0">
+                        <Image
+                            Source="bline.png"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            HeightRequest="22"
+                            WidthRequest="22" />
+                        <local:CustomLabelRegular
+                            Grid.Column="0"
+                            Text="Follow us"
+                            Grid.Row="0"
+                            TextColor="#AAAAAA"
+                            FontSize="Medium"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start">
+
+                        </local:CustomLabelRegular>
+
+                        <Image
+                            Source="fb.png"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            HeightRequest="25"
+                            WidthRequest="25">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding FacebookCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image
+                            Source="google.png"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            HeightRequest="25"
+                            WidthRequest="25">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding GoogleCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+
+                        <!--<Image Source="twiter.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="25" WidthRequest="25"/>
+            <Image Source="link.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="25" WidthRequest="25"/>-->
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        Padding="6,0,6,0">
+                        <Image
+                            Source="signout.png"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            HeightRequest="22"
+                            WidthRequest="22" />
+                        <local:CustomLabelRegular
+                            Grid.Column="0"
+                            Text="Logout"
+                            Grid.Row="0"
+                            TextColor="#AAAAAA"
+                            FontSize="Medium"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding LogoutCommand}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                </Grid>
+            </ScrollView>
+
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+</MasterDetailPage>

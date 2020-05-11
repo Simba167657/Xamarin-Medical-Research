@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:SJMC.CustomControl;assembly=SJMC"
+             mc:Ignorable="d"
+             x:Class="SJMC.Views.Login.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="bg.png">
+
+    <ScrollView HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                IsVisible="{Binding PageVisibility}">
+        <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              Padding="0,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="225" />
+                <RowDefinition Height="90" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.RowSpan="3"
+                   Source="image.png"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand" />
+
+            <Grid Grid.Row="2"
+                  Grid.Column="0"
+                  Grid.RowSpan="2"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  Margin="30,0">
+                <Frame Padding="0"
+                       BackgroundColor="#FFFFFF"
+                       BorderColor="#E1E1E1"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand">
+                    <Grid Padding="20,5"
+                          HorizontalOptions="FillAndExpand"
+                          VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height=".1" />
+                            <RowDefinition Height=".1" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="10" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <local:CustomLabelRegular Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Text="Username"
+                                                  TextColor="#A1A1A1"
+                                                  FontSize="Small"
+                                                  HorizontalOptions="StartAndExpand"
+                                                  VerticalOptions="End" />
+                        <local:CustomEntryRegular Grid.Row="1"
+                                                  Grid.Column="0"
+                                                  Text="{Binding Username}"
+                                                  TextColor="#323232"
+                                                  FontSize="Small"
+                                                  Placeholder="Username"
+                                                  PlaceholderColor="#A1A1A1"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="Center"
+                                                  Focused="CustomEntryRegular_Focused"
+                                                  Unfocused="CustomEntryRegular_Unfocused" />
+                        <BoxView Grid.Row="1"
+                                 Grid.Column="0"
+                                 HeightRequest="1"
+                                 BackgroundColor="#CDCDCD"
+                                 TranslationY="-5"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="End" />
+
+                        <local:CustomLabelRegular Grid.Row="2"
+                                                  Grid.Column="0"
+                                                  Text="Password"
+                                                  TextColor="#A1A1A1"
+                                                  FontSize="Small"
+                                                  HorizontalOptions="StartAndExpand"
+                                                  VerticalOptions="Center" />
+                        <StackLayout Grid.Row="3"
+                                     Grid.Column="0"
+                                     Orientation="Horizontal"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand">
+                            <local:CustomEntryRegular  Text="{Binding Password}"
+                                                       TextColor="#323232"
+                                                       FontSize="Small"
+                                                       IsPassword="{Binding IsPassword}"
+                                                       Placeholder="Password"
+                                                       PlaceholderColor="#A1A1A1"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       VerticalOptions="Center"
+                                                       Focused="CustomEntryRegular_Focused"
+                                                       Unfocused="CustomEntryRegular_Unfocused" />
+                            <ContentView HorizontalOptions="End"
+                                         VerticalOptions="Center">
+                                <local:CustomLabelRegular Text="SHOW"
+                                                          TextColor="#A1A1A1"
+                                                          HorizontalOptions="End"
+                                                          VerticalOptions="Center"  >
+                                    <local:CustomLabelRegular.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS" Value="Medium"></On>
+                                            <On Platform="Android" Value="Micro"></On>
+                                        </OnPlatform>
+                                    </local:CustomLabelRegular.FontFamily>
+                                </local:CustomLabelRegular>
+                                <ContentView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ShowCommand}"
+                                                          NumberOfTapsRequired="1" />
+                                </ContentView.GestureRecognizers>
+                            </ContentView>
+                        </StackLayout>
+                        <BoxView Grid.Row="3"
+                                 Grid.Column="0"
+                                 HeightRequest="1"
+                                 BackgroundColor="#CDCDCD"
+                                 TranslationY="-5"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="End" />
+
+                        <!--<local:CustomLabelRegular Grid.Row="4" Grid.Column="0" Text="Role" TextColor="#A1A1A1" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="End" />
+                        <local:CustomLabelRegular  Grid.Row="5" Grid.Column="0"  x:Name="TypeLabel" Text="{Binding SelectedUserType}"
+                                                   TextColor="#A1A1A1" FontSize="Small" HorizontalOptions="FillAndExpand" 
+                                                   VerticalOptions="Center">
+                            <local:CustomLabelRegular.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UserTypeRoleCommand}"></TapGestureRecognizer>
+                            </local:CustomLabelRegular.GestureRecognizers>
+                        </local:CustomLabelRegular>
+                        <BoxView Grid.Row="5" Grid.Column="0" HeightRequest="1" BackgroundColor="#CDCDCD" TranslationY="-5" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>-->
+
+
+                        <StackLayout Grid.Row="6"
+                                     Grid.Column="0"
+                                     Orientation="Horizontal"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand">
+                            <Image Source="{Binding CheckSource}"
+                                   HeightRequest="15"
+                                   WidthRequest="15"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding RememberMeCommand}"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <local:CustomLabelRegular Text="Remember me"
+                                                      TextColor="#A1A1A1"
+                                                      HorizontalOptions="StartAndExpand"
+                                                      VerticalOptions="Center">
+
+
+                                <local:CustomLabelRegular.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="Medium"></On>
+                                        <On Platform="Android" Value="Micro"></On>
+                                    </OnPlatform>
+                                </local:CustomLabelRegular.FontFamily>
+
+                                <local:CustomLabelRegular.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding RememberMeCommand}"></TapGestureRecognizer>
+                                </local:CustomLabelRegular.GestureRecognizers>
+                            </local:CustomLabelRegular>
+
+                            <ContentView HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand">
+                                <local:CustomLabelRegular Text="Forget password?"
+                                                          TextColor="#A1A1A1"
+                                                          HorizontalOptions="End"
+                                                          VerticalOptions="Center">
+
+                                    <local:CustomLabelRegular.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS" Value="Medium"></On>
+                                            <On Platform="Android" Value="Micro"></On>
+                                        </OnPlatform>
+                                    </local:CustomLabelRegular.FontFamily>
+
+                                </local:CustomLabelRegular>
+                                <ContentView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ForgetCommand}"
+                                                          NumberOfTapsRequired="1" />
+                                </ContentView.GestureRecognizers>
+                            </ContentView>
+                        </StackLayout>
+
+
+                        <Button Grid.Row="7"
+                                Grid.Column="0"
+                                Text="SIGN IN "
+                                TextColor="#ffffff"
+                                Font="16"
+                                HeightRequest="40"
+                                BackgroundColor="#213A8E"
+                                Command="{Binding LoginCommand}"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand" />
+
+                        <!--<StackLayout Grid.Row="8" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+                            <local:CustomLabelRegular Text="Not registered? Please" TextColor="#A1A1A1" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                            <local:CustomLabelRegular Text="SIGN UP" TextColor="#33405D" FontSize="Small" HorizontalOptions="End" VerticalOptions="Center" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SignUpCommand}" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>-->
+
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <Grid Grid.Row="4"
+                  Grid.Column="0"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  Margin="30,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0"
+                      Grid.Column="0"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.RowSpan="3"
+                           Source="box1.png"
+                           Aspect="AspectFill"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand" />
+                    <StackLayout Grid.Row="1"
+                                 Grid.Column="0"
+                                 Spacing="0"
+                                 HorizontalOptions="CenterAndExpand"
+                                 VerticalOptions="CenterAndExpand">
+                        <Image Source="get.png"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand" />
+                        <local:CustomLabelRegular  Text="GET IN TOUCH"
+                                                   TextColor="#FFFFFF"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   VerticalOptions="Start">
+                            <local:CustomLabelRegular.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="Medium"></On>
+                                    <On Platform="Android" Value="Micro"></On>
+                                </OnPlatform>
+                            </local:CustomLabelRegular.FontFamily>
+
+                        </local:CustomLabelRegular>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LocateUsCommand}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Row="0"
+                      Grid.Column="1"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.RowSpan="3"
+                           Source="box2.png"
+                           Aspect="AspectFill"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand" />
+                    <StackLayout Grid.Row="1"
+                                 Grid.Column="0"
+                                 Spacing="0"
+                                 HorizontalOptions="CenterAndExpand"
+                                 VerticalOptions="CenterAndExpand">
+                        <Image Source="get.png"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand" />
+                        <local:CustomLabelRegular  Text="LATEST NEWS"
+                                                   TextColor="#FFFFFF"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   VerticalOptions="Start">
+                            <local:CustomLabelRegular.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="Medium"></On>
+                                    <On Platform="Android" Value="Micro"></On>
+                                </OnPlatform>
+                            </local:CustomLabelRegular.FontFamily>
+
+                        </local:CustomLabelRegular>
+                    </StackLayout>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LatestNewsCommand}" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

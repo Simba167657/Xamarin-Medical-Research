@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:SJMC.CustomControl;assembly=SJMC"
+             x:Class="SJMC.Views.Registration.RegistrationPage" Title="RegistrationPage" NavigationPage.HasNavigationBar="False">
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--Navigation Bar Section-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#213A8E" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--Back-->
+            <Grid Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Menu_Tapped"/>
+                </Grid.GestureRecognizers>
+                <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" >
+                    <!--Back Icon-->
+                    <Image Source="back.png" HeightRequest="15" WidthRequest="15"  Margin="10,0,0,0"/>
+                </StackLayout>
+            </Grid>
+            <!--Title Section-->
+            <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <local:CustomLabelRegular Text="Registration" TextColor="#FFFFFF" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </Grid>
+        </Grid>
+        
+        
+       
+    </Grid>
+
+</ContentPage>

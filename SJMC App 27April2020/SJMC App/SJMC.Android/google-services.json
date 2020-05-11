@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "267961763454",
+    "firebase_url": "https://sjmc-256608.firebaseio.com",
+    "project_id": "sjmc-256608",
+    "storage_bucket": "sjmc-256608.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267961763454:android:420e6845b14c1383543a2f",
+        "android_client_info": {
+          "package_name": "com.app.SJMC"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267961763454-qitbqn1ef7o8qudnk4bk8gngelglf7j9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzdtok4lk__zTykbElAp4fNgvgoYMyILg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267961763454-qitbqn1ef7o8qudnk4bk8gngelglf7j9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

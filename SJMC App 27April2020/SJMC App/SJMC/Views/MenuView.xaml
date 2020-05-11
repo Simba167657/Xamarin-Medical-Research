@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:SJMC.CustomControl;assembly=SJMC"
+             mc:Ignorable="d"
+             x:Class="SJMC.Views.MenuView" 
+             Title="Menu" 
+             BackgroundColor="#ffffff"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid x:Name="MainStack" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+          Margin="20,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" BackgroundColor="#213A8E" Padding="10">
+            <StackLayout Orientation="Horizontal" HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Source="menunoti.png" Aspect="AspectFit" HorizontalOptions="StartAndExpand" VerticalOptions="Center" HeightRequest="25" WidthRequest="25"/>
+                <local:CustomLabelRegular Grid.Column="0" Text="MENU" Grid.Row="0" TextColor="#AAAAAA" FontSize="18"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Margin="0,0,25,0"/>
+                <Image Source="setting.png" Aspect="AspectFit" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="25" WidthRequest="25"/>
+            </StackLayout>
+        </Grid>
+      
+        <Grid Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Padding="20,20,0,0">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <Image Source="close.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="25" WidthRequest="25">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CloseCommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <ListView x:Name="masterMenuList" ItemsSource="{Binding MenuItemList}" 
+                          ItemTapped="masterMenuList_ItemTapped" RowHeight="50" HorizontalOptions="FillAndExpand"
+                          VerticalOptions="Start" SeparatorVisibility="None" BackgroundColor="Transparent" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <local:CustomLabelRegular Grid.Column="0" Text="{Binding Title}"  
+                                                              TextColor="#AAAAAA" FontSize="18"  
+                                                              VerticalOptions="Center" HorizontalOptions="Start" />
+                                    <Image Grid.Column="1"  Aspect="AspectFit"
+                                           HorizontalOptions="Start" VerticalOptions="Center" 
+                                           HeightRequest="25" WidthRequest="25"/>
+                                    <!--<local:CustomLabelRegular Grid.Column="1" Text="1"  TextColor="#FFFFFF" FontSize="18"  VerticalOptions="Center" HorizontalOptions="Start" />-->
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+
+        <StackLayout  Grid.Row="3"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                      Orientation="Horizontal" BackgroundColor="Blue">
+            <Image Source="about.png" Aspect="AspectFit" HorizontalOptions="Start" 
+                   VerticalOptions="Center" HeightRequest="25" WidthRequest="25"/>
+            <local:CustomLabelRegular Grid.Column="0" Text="About this app" 
+                                      TextColor="#AAAAAA" FontSize="18" VerticalTextAlignment="Center">
+                <local:CustomLabelRegular.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AboutThis_Tapped"></TapGestureRecognizer>
+                </local:CustomLabelRegular.GestureRecognizers>
+            </local:CustomLabelRegular>
+        </StackLayout>
+
+        <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Padding="5">
+            <Image Source="rate.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="25" WidthRequest="25"/>
+            <local:CustomLabelRegular Grid.Column="0" Text="Rate this app" Grid.Row="0" 
+                                      TextColor="#AAAAAA" FontSize="18"  
+                                      VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding RateCommand}"/>
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+
+        <StackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  
+                     Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+            <Image Source="bline.png" Aspect="AspectFit" HorizontalOptions="Start" 
+                   VerticalOptions="Center" HeightRequest="25" WidthRequest="25"/>
+            <local:CustomLabelRegular Text="Follow us" 
+                                      TextColor="#AAAAAA" FontSize="18"
+                                      VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" >
+              
+            </local:CustomLabelRegular>
+            <Image Source="fb.png" Aspect="AspectFit" HorizontalOptions="Start" 
+                   VerticalOptions="Center" HeightRequest="25" WidthRequest="25">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Facebook_Tapped"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="google.png" Aspect="AspectFit" HorizontalOptions="Start" 
+                   VerticalOptions="Center" HeightRequest="25" WidthRequest="25">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Google_Tapped"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <!--<Image Source="twiter.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="25" WidthRequest="25"/>
+            <Image Source="link.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="25" WidthRequest="25"/>-->
+        </StackLayout>
+
+    </Grid>
+
+</ContentPage>

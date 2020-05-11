@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             xmlns:uc="clr-namespace:SJMC.CustomControl"
+             mc:Ignorable="d"
+             x:Class="SJMC.Popup.RatingBarView">
+  <ContentView.Content>
+      <StackLayout>
+            <uc:CustomRatingBar x:Name="customRatingBar" MaxStars="5"  RatingChanged="OnRatingChanged"
+                                IsReadonly="false"  HorizontalOptions="Center" />
+            <!--<rating:SfRating x:Name="rating" ItemCount="5" Precision="Standard" ValueChanged="rating_ValueChanged"
+                             Margin="15,0"  WidthRequest="120"/>-->
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

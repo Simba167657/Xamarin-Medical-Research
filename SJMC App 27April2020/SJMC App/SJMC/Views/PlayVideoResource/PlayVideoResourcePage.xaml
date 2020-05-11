@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:video1="clr-namespace:SJMC.CustomControl.FormsVideoLibrary"
+    x:Class="SJMC.Views.PlayVideoResource.PlayVideoResourcePage"
+    NavigationPage.HasNavigationBar="False"
+    Padding="0">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <video1:VideoPlayer
+                AreTransportControlsEnabled="False"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Margin="0"
+                BackgroundColor="Transparent">
+                <video1:VideoPlayer.Source>
+                    <video1:ResourceVideoSource>
+                        <video1:ResourceVideoSource.Path>
+                            <OnPlatform
+                                x:TypeArguments="x:String">
+                                <On
+                                    Platform="iOS"
+                                    Value="sample.mp4" />
+                                <On
+                                    Platform="Android"
+                                    Value="sample.mp4" />
+                            </OnPlatform>
+                        </video1:ResourceVideoSource.Path>
+                    </video1:ResourceVideoSource>
+                </video1:VideoPlayer.Source>
+            </video1:VideoPlayer>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

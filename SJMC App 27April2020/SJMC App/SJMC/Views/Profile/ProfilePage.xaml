@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:SJMC.CustomControl"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    mc:Ignorable="d"
+    xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    x:Class="SJMC.Views.Profile.ProfilePage"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundImageSource="bg.png">
+    <Grid
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="50" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+        <!--Navigation Bar Section-->
+        <Grid
+            Grid.Row="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            BackgroundColor="#213A8E">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="50" />
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="50" />
+            </Grid.ColumnDefinitions>
+            <!--Back-->
+            <Grid
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="Menu_Tapped" />
+                </Grid.GestureRecognizers>
+                <Image
+                    Source="menunoti.png"
+                    HeightRequest="25"
+                    WidthRequest="25"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Aspect="AspectFit" />
+            </Grid>
+            <!--Title Section-->
+            <Grid
+                Grid.Column="1"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <local:CustomLabelRegular
+                    Text="HOME"
+                    TextColor="#FFFFFF"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center" />
+            </Grid>
+
+            <Grid
+                Grid.Column="2"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="Menu_Tapped" />
+                </Grid.GestureRecognizers>
+                <StackLayout
+                    Orientation="Horizontal"
+                    Spacing="5"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <!--Back Icon-->
+                    <Image
+                        HeightRequest="25"
+                        WidthRequest="25"
+                        Margin="0,0,25,0" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start">
+            <ScrollView
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Grid
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
+                    Padding="0,0,0,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="80" />
+                        <RowDefinition
+                            Height="20" />
+                        <RowDefinition
+                            Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <forms:CachedImage
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.RowSpan="2"
+                        Source="image.png"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <forms:CachedImage.Transformations>
+                            <ffTransformations:CircleTransformation />
+                        </forms:CachedImage.Transformations>
+                    </forms:CachedImage>
+
+                    <Grid
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.RowSpan="2"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Margin="30,0">
+                        <Frame
+                            Padding="0"
+                            BackgroundColor="#FFFFFF"
+                            BorderColor="#E1E1E1"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <Grid
+                                Padding="20,5"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <!--<RowDefinition Height="10"/>
+                                    <RowDefinition Height="40"/>-->
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition
+                                        Width="*" />
+
+                                </Grid.ColumnDefinitions>
+
+
+                                <forms:CachedImage
+                                    Grid.Row="0"
+                                    HeightRequest="72"
+                                    WidthRequest="72"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    Source="{Binding ProfilePhoto ,Mode=TwoWay}"
+                                    ErrorPlaceholder="dot.png"
+                                    LoadingPlaceholder="dot.png">
+                                    <forms:CachedImage.Transformations>
+                                        <ffTransformations:CircleTransformation />
+                                    </forms:CachedImage.Transformations>
+                                </forms:CachedImage>
+
+
+                                <local:CustomLabelFontFactor
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Text="{Binding FullName,StringFormat='Welcome {0}'}"
+                                    TextColor="#404040"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="Center"
+                                    FontSizeFactor="0.82">
+                                    <local:CustomLabelFontFactor.FontFamily>
+                                        <OnPlatform
+                                            x:TypeArguments="x:String">
+                                            <On
+                                                Platform="iOS"
+                                                Value="Medium"></On>
+                                            <On
+                                                Platform="Android"
+                                                Value="Small"></On>
+                                        </OnPlatform>
+                                    </local:CustomLabelFontFactor.FontFamily>
+                                </local:CustomLabelFontFactor>
+                                <BoxView
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    HeightRequest="2"
+                                    WidthRequest="50"
+                                    BackgroundColor="#657299"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+
+                                <local:CustomLabelRegular
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    HeightRequest="20"
+                                    Text="Email address"
+                                    TextColor="#A1A1A1"
+                                    FontSize="Small"
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="End" />
+                                <Label
+                                    Grid.Row="4"
+                                    Grid.Column="0"
+                                    Text="{Binding Email}"
+                                    HeightRequest="40"
+                                    TextColor="#323232"
+                                    FontSize="Small"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="Center"
+                                    IsEnabled="False" />
+                                <BoxView
+                                    Grid.Row="4"
+                                    Grid.Column="0"
+                                    HeightRequest="1"
+                                    BackgroundColor="#CDCDCD"
+                                    TranslationY="-5"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="End" />
+
+                                <local:CustomLabelRegular
+                                    Grid.Row="5"
+                                    Grid.Column="0"
+                                    HeightRequest="20"
+                                    Text="Mobile"
+                                    TextColor="#A1A1A1"
+                                    FontSize="Small"
+                                    IsVisible="{Binding MobileVisibility}"
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    Grid.Row="6"
+                                    Grid.Column="0"
+                                    HeightRequest="40"
+                                    IsVisible="{Binding MobileVisibility}"
+                                    Text="{Binding Mobile}"
+                                    TextColor="#323232"
+                                    FontSize="Small"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="Center"
+                                    IsEnabled="False" />
+                                <BoxView
+                                    Grid.Row="6"
+                                    Grid.Column="0"
+                                    HeightRequest="1"
+                                    IsVisible="{Binding MobileVisibility}"
+                                    BackgroundColor="#CDCDCD"
+                                    TranslationY="-5"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="End" />
+
+                                <StackLayout
+                                    Grid.Row="7"
+                                    Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="FillAndExpand">
+                                    <local:CustomLabelFontFactor
+                                        Text="UPDATE YOUR INFORMATION"
+                                        TextColor="#404040"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        TextDecorations="Underline"
+                                        FontAttributes="Bold"
+                                        FontSizeFactor="0.85">
+                                        <local:CustomLabelFontFactor.FontFamily>
+                                            <OnPlatform
+                                                x:TypeArguments="x:String">
+                                                <On
+                                                    Platform="iOS"
+                                                    Value="Medium"></On>
+                                                <On
+                                                    Platform="Android"
+                                                    Value="Micro"></On>
+                                            </OnPlatform>
+                                        </local:CustomLabelFontFactor.FontFamily>
+                                    </local:CustomLabelFontFactor>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding UpdateCommand}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout
+                                    Grid.Row="8"
+                                    Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="FillAndExpand">
+
+                                    <local:CustomLabelFontFactor
+                                        Text="LABORATORY RESULTS"
+                                        TextColor="#404040"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        TextDecorations="Underline"
+                                        FontAttributes="Bold"
+                                        FontSizeFactor="0.85">
+                                        <local:CustomLabelFontFactor.FontFamily>
+                                            <OnPlatform
+                                                x:TypeArguments="x:String">
+                                                <On
+                                                    Platform="iOS"
+                                                    Value="Medium"></On>
+                                                <On
+                                                    Platform="Android"
+                                                    Value="Micro"></On>
+                                            </OnPlatform>
+                                        </local:CustomLabelFontFactor.FontFamily>
+                                    </local:CustomLabelFontFactor>
+
+                                    <Grid
+                                        IsVisible="{Binding LabCountVisibility}">
+                                        <Image
+                                            Source="circl.png"
+                                            Aspect="AspectFit"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"
+                                            HeightRequest="25"
+                                            WidthRequest="25" />
+                                        <local:CustomLabelFontFactor
+                                            Text="{Binding LabCount}"
+                                            TextColor="White"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"
+                                            FontSizeFactor="0.65">
+                                            <local:CustomLabelFontFactor.FontFamily>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:String">
+                                                    <On
+                                                        Platform="iOS"
+                                                        Value="Small"></On>
+                                                    <On
+                                                        Platform="Android"
+                                                        Value="Micro"></On>
+                                                </OnPlatform>
+                                            </local:CustomLabelFontFactor.FontFamily>
+                                        </local:CustomLabelFontFactor>
+                                    </Grid>
+
+
+
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding LABORATORYCommand}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                                <StackLayout
+                                    Grid.Row="9"
+                                    Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    HeightRequest="30"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="FillAndExpand">
+                                    <local:CustomLabelFontFactor
+                                        Text="RADIOLOGY RESULTS"
+                                        TextColor="#404040"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        TextDecorations="Underline"
+                                        FontAttributes="Bold"
+                                        FontSizeFactor="0.85">
+                                        <local:CustomLabelFontFactor.FontFamily>
+                                            <OnPlatform
+                                                x:TypeArguments="x:String">
+                                                <On
+                                                    Platform="iOS"
+                                                    Value="Small"></On>
+                                                <On
+                                                    Platform="Android"
+                                                    Value="Micro"></On>
+                                            </OnPlatform>
+                                        </local:CustomLabelFontFactor.FontFamily>
+                                    </local:CustomLabelFontFactor>
+                                    <Grid
+                                        IsVisible="{Binding RadioCountVisibility}">
+                                        <Image
+                                            Source="circl.png"
+                                            Aspect="AspectFit"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"
+                                            HeightRequest="25"
+                                            WidthRequest="25" />
+                                        <local:CustomLabelFontFactor
+                                            Text="{Binding RadioCount}"
+                                            TextColor="White"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"
+                                            FontSizeFactor="0.65">
+                                            <local:CustomLabelFontFactor.FontFamily>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:String">
+                                                    <On
+                                                        Platform="iOS"
+                                                        Value="Small"></On>
+                                                    <On
+                                                        Platform="Android"
+                                                        Value="Micro"></On>
+                                                </OnPlatform>
+                                            </local:CustomLabelFontFactor.FontFamily>
+                                        </local:CustomLabelFontFactor>
+                                    </Grid>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding RADIOLOGYCommand}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <!--<Button Grid.Row="8" Grid.Column="0" Text="Update" TextColor="#ffffff"
+                                        Font="16" HeightRequest="40" BackgroundColor="#213A8E" 
+                                        Command="{Binding UpdateCommand}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
+
+                                <Button
+                                    Grid.Row="10"
+                                    Grid.Column="0"
+                                    Text="LOGOUT"
+                                    TextColor="#ffffff"
+                                    Font="Small"
+                                    HeightRequest="40"
+                                    BackgroundColor="#213A8E"
+                                    Command="{Binding LogoutCommand}"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand" />
+
+
+                                <StackLayout
+                                    Grid.Row="11"
+                                    Grid.Column="0"
+                                    Padding="0,5,0,5"
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal">
+
+                                    <local:CustomLabelFontFactor
+                                        HeightRequest="20"
+                                        Grid.Row="5"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        Text="{Binding BloodSampleMessage}"
+                                        TextColor="#404040"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        TextDecorations="Underline"
+                                        HorizontalTextAlignment="Center"
+                                        FontSizeFactor="0.68">
+                                        <local:CustomLabelFontFactor.FontFamily>
+                                            <OnPlatform
+                                                x:TypeArguments="x:String">
+                                                <On
+                                                    Platform="iOS"
+                                                    Value="Medium"></On>
+                                                <On
+                                                    Platform="Android"
+                                                    Value="Micro"></On>
+                                            </OnPlatform>
+                                        </local:CustomLabelFontFactor.FontFamily>
+
+                                    </local:CustomLabelFontFactor>
+
+                                    <local:CustomLabelFontFactor
+                                        HeightRequest="20"
+                                        Grid.Row="5"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        Text="{Binding BloodSampleNumber}"
+                                        TextColor="#24C2CB"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        TextDecorations="Underline"
+                                        HorizontalTextAlignment="Center"
+                                        FontAttributes="Bold"
+                                        FontSizeFactor="0.68">
+                                        <local:CustomLabelFontFactor.FontFamily>
+                                            <OnPlatform
+                                                x:TypeArguments="x:String">
+                                                <On
+                                                    Platform="iOS"
+                                                    Value="Medium"></On>
+                                                <On
+                                                    Platform="Android"
+                                                    Value="Micro"></On>
+                                            </OnPlatform>
+                                        </local:CustomLabelFontFactor.FontFamily>
+
+                                    </local:CustomLabelFontFactor>
+
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding BloodSampleCommand}">
+                                        </TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                            </Grid>
+                        </Frame>
+                    </Grid>
+
+
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>
